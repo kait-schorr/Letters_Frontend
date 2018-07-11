@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Navbar,
@@ -9,9 +10,22 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+  DropdownItem,
+} from 'reactstrap';
+import axios from 'axios';
+
 class NavBar extends Component {
+  logout() {
+    axios
+      .post('https://penpaldjango.herokuapp.com/rest-auth/logout/')
+      .then(response => {
+        console.log(response);
+        this.props.history.push('/');
+      })
+      .catch(error => {
+        console.log('error:', error);
+      });
+  }
   render() {
     return (
       <Container className="mt-5">
@@ -42,7 +56,14 @@ class NavBar extends Component {
                   <DropdownItem href="#">Account</DropdownItem>
                   <DropdownItem href="#">Help</DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem href="#">Log Out</DropdownItem>
+                  <DropdownItem
+                    onClick={() => {
+                      this.logout();
+                      this.props.setUser(undefined);
+                    }}
+                  >
+                    Log Out
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             )}
@@ -53,4 +74,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
