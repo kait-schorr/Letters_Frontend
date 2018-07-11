@@ -21,6 +21,7 @@ class LetterList extends Component {
       .get(`https://penpaldjango.herokuapp.com/api/letters`, config)
       .then(response => {
         this.setState({ letters: response.data });
+        console.log('Response from letter call: ', response.data);
       })
       .catch(err => {
         console.log(err);
@@ -28,20 +29,14 @@ class LetterList extends Component {
   }
 
   componentDidMount() {
-    if (this.props.user) {
-      this.getLetters();
-    }
+    this.getLetters();
   }
 
   render() {
     return (
       <Container>
         <Row>
-          {this.state.letters.map(letter => (
-            <Link className="letter-cards" to={`letters/${letter.name}`}>
-              <Letter letter={letter} />
-            </Link>
-          ))}
+          {this.state.letters.map(letter => <Letter letter={letter} />)}
         </Row>
       </Container>
     );

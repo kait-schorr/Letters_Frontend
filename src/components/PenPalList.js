@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Penpal from './PenPal';
 import axios from 'axios';
 import {
   Container,

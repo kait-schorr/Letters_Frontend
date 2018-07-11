@@ -7,7 +7,9 @@ class Letter extends Component {
       <Card>
         <CardBody>
           <CardTitle>{this.props.letter.date}</CardTitle>
-          <CardText>{this.props.letter.outbound}</CardText>
+          <CardText>
+            {this.props.letter.outbound ? 'OUTGOING' : 'INCOMING'}
+          </CardText>
         </CardBody>
       </Card>
     );
