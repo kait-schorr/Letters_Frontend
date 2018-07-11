@@ -6,7 +6,7 @@ class Letter extends Component {
     return (
       <Card>
         <CardBody>
-          <CardTitle>{this.props.letter.date}</CardTitle>
+          <CardTitle>Date Sent/Received: {this.props.letter.date}</CardTitle>
           <CardText>
             {this.props.letter.outbound ? 'OUTGOING' : 'INCOMING'}
           </CardText>
