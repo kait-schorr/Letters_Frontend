@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { Card, CardText, CardBody, CardTitle } from "reactstrap";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class PenPal extends Component {
   render() {
@@ -8,7 +9,10 @@ class PenPal extends Component {
         <Card>
           <CardBody>
             <CardTitle>{this.props.penpal.name}</CardTitle>
-            <CardText>{this.props.penpal.address.city}, {this.props.penpal.address.state}</CardText>
+            <CardText>
+              {this.props.penpal.address.city},{' '}
+              {this.props.penpal.address.state}
+            </CardText>
           </CardBody>
         </Card>
       </div>
