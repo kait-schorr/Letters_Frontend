@@ -40,11 +40,16 @@ class LetterForm extends Component {
           `Sincerest apologies, there was a hiccup in creating a new Letter: ${err}`
         );
       });
+    document.getElementById('letterform').reset();
   };
 
   render() {
     return (
-      <Form onChange={this.handleChange} onSubmit={this.formSubmit}>
+      <Form
+        id="letterform"
+        onChange={this.handleChange}
+        onSubmit={this.formSubmit}
+      >
         <FormGroup>
           <Label for="letterDate">Letter Date</Label>
           <Input

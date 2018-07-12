@@ -44,12 +44,17 @@ class PenPalForm extends Component {
       .catch(error => {
         alert('There was an error creating a new account');
       });
+    document.getElementById('penpalform').reset();
   };
   componentDidMount() {}
 
   render() {
     return (
-      <Form onChange={this.handleChange} onSubmit={this.formSubmit}>
+      <Form
+        id="penpalform"
+        onChange={this.handleChange}
+        onSubmit={this.formSubmit}
+      >
         <FormGroup>
           <Label for="penPalName">Pen Pal Name</Label>
           <Input
