@@ -28,7 +28,7 @@ class LetterForm extends Component {
         {
           date: '2018-07-11T21:25:53Z',
           outbound: this.state.letterOutbound,
-          penpal: this.state.penpal.url,
+          penpal: this.props.penpal.url,
         },
         config
       )
