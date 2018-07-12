@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import {
   Container,
@@ -11,6 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 import PenPalForm from './PenPalForm';
 import LetterForm from './LetterForm';
+import '../styles/PenPalList.css';
 
 class PenPalList extends Component {
   constructor(props) {
@@ -46,23 +47,25 @@ class PenPalList extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          {this.state.penpals.map(penpal => (
-            <Link className="penpal-cards" to={`penpals/${penpal.name}`}>
-              <Card>
-                <CardBody>
-                  <CardTitle>{penpal.name}</CardTitle>
-                  <CardText>
-                    {penpal.address.city}, {penpal.address.state}
-                  </CardText>
-                </CardBody>
-              </Card>
-            </Link>
-          ))}
-        </Row>
+      <Fragment>
+        <Container className="penpalCards">
+          <Row>
+            {this.state.penpals.map(penpal => (
+              <Link className="penpal-cards" to={`penpals/${penpal.name}`}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>{penpal.name}</CardTitle>
+                    <CardText>
+                      {penpal.address.city}, {penpal.address.state}
+                    </CardText>
+                  </CardBody>
+                </Card>
+              </Link>
+            ))}
+          </Row>
+        </Container>
         <PenPalForm getPenpals={this.getPenpals} />
-      </Container>
+      </Fragment>
     );
   }
 }

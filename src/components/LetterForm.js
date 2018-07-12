@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import moment from 'moment';
 
 class LetterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      letterDate: '',
-      letterOutbound: '',
+      letterDate: moment().format(),
+      letterOutbound: false,
     };
   }
 
