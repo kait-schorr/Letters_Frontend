@@ -12,6 +12,7 @@ class LetterList extends Component {
     this.state = {
       letters: [],
     };
+    this.getLetters = this.getLetters.bind(this);
   }
 
   getLetters() {
@@ -41,7 +42,7 @@ class LetterList extends Component {
           <h1 className="col-12">Letters: </h1>
           {this.state.letters.map(letter => <Letter letter={letter} />)}
         </Row>
-        <LetterForm getLetter={this.getLetters} penpal={this.props.penpal} />
+        <LetterForm getLetters={this.getLetters} penpal={this.props.penpal} />
       </Container>
     );
   }
