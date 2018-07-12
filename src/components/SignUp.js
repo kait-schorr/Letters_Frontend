@@ -47,7 +47,7 @@ class SignUp extends Component {
     return (
       <div className="signUpForm">
         <Col sm="12" md={{ size: 8, offset: 2 }}>
-          <h5>Sign Up:</h5>
+          <h6>Sign Up:</h6>
           <Form onSubmit={this.signupHandler} onChange={this.handleChange}>
             <FormGroup row>
               <Label for="signUpUsername" sm={2}>

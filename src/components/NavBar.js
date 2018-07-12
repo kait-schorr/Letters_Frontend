@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {
   Container,
   Navbar,
+  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -30,9 +31,7 @@ class NavBar extends Component {
     return (
       <Container className="mt-5">
         <Navbar color="light" light expand="sm">
-          <h1 className="ml-auto title" href="/">
-            Letters!
-          </h1>
+          <NavbarBrand href="/">Letters!</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink tag={Link} to="/penpals">

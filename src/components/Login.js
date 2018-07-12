@@ -49,7 +49,7 @@ class Login extends Component {
     return (
       <div className="logInForm">
         <Col sm="12" md={{ size: 8, offset: 2 }}>
-          <h5>Log In:</h5>
+          <h6>Log In:</h6>
           <Form onSubmit={this.loginHandler} onChange={this.handleChange}>
             <FormGroup row>
               <Label for="logInUsername" sm={2}>
