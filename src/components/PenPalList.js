@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import {
   Container,
+  Col,
   Row,
   Card,
   CardText,
@@ -49,20 +50,22 @@ class PenPalList extends Component {
     return (
       <Fragment>
         <Container className="penpalCards">
-          <Row>
-            {this.state.penpals.map(penpal => (
-              <Link className="penpal-cards" to={`penpals/${penpal.name}`}>
-                <Card>
-                  <CardBody>
-                    <CardTitle>{penpal.name}</CardTitle>
-                    <CardText>
-                      {penpal.address.city}, {penpal.address.state}
-                    </CardText>
-                  </CardBody>
-                </Card>
-              </Link>
-            ))}
-          </Row>
+          <Col sm="12" md={{ size: 8, offset: 2 }}>
+            <Row>
+              {this.state.penpals.map(penpal => (
+                <Link className="penpal-cards" to={`penpals/${penpal.name}`}>
+                  <Card>
+                    <CardBody>
+                      <CardTitle>{penpal.name}</CardTitle>
+                      <CardText>
+                        {penpal.address.city}, {penpal.address.state}
+                      </CardText>
+                    </CardBody>
+                  </Card>
+                </Link>
+              ))}
+            </Row>
+          </Col>
         </Container>
         <PenPalForm getPenpals={this.getPenpals} />
       </Fragment>

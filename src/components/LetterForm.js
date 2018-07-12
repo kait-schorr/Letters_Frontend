@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Col, Form, FormGroup, Label, Input } from 'reactstrap';
 import moment from 'moment';
 
 class LetterForm extends Component {
@@ -47,26 +47,28 @@ class LetterForm extends Component {
 
   render() {
     return (
-      <Form
-        id="letterform"
-        onChange={this.handleChange}
-        onSubmit={this.formSubmit}
-      >
-        <FormGroup>
-          <Label for="letterDate">Letter Date</Label>
-          <Input
-            type="date"
-            name="letterDate"
-            id="letterDate"
-            placeholder="Select date"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="letterOutbound">Outbound Letter</Label>
-          <Input type="checkbox" name="letterOutbound" id="letterOutbound" />
-        </FormGroup>
-        <Button>Submit</Button>
-      </Form>
+      <Col sm="12" md={{ size: 8, offset: 2 }}>
+        <Form
+          id="letterform"
+          onChange={this.handleChange}
+          onSubmit={this.formSubmit}
+        >
+          <FormGroup>
+            <Label for="letterDate">Letter Date</Label>
+            <Input
+              type="date"
+              name="letterDate"
+              id="letterDate"
+              placeholder="Select date"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="letterOutbound">Outbound Letter</Label>
+            <Input type="checkbox" name="letterOutbound" id="letterOutbound" />
+          </FormGroup>
+          <Button>Submit</Button>
+        </Form>
+      </Col>
     );
   }
 }
