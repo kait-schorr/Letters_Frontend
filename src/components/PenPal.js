@@ -11,14 +11,13 @@ class PenPal extends Component {
   }
 
   componentDidMount() {
-    let penpal = this.props.penPals.filter(penpal => {
-      if (penpal.name === this.props.match.params.name) {
-        return penpal;
+    this.props.penPals.filter(penpal => {
+      if (penpal.name == this.props.match.params.name) {
+        this.setState({ penpal: penpal });
       }
     });
-    this.setState({ penpal: penpal[0] });
-    console.log('Props', this.props);
-    console.log(penpal);
+
+    console.log(this.state.penpal);
   }
 
   render() {
@@ -34,7 +33,7 @@ class PenPal extends Component {
               {this.state.penpal.address.zipcode}
             </h3>
 
-            <LetterList />
+            <LetterList penpal={this.state.penpal} />
           </div>
         ) : (
           <h1>Loading</h1>

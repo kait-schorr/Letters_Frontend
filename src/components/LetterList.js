@@ -34,13 +34,14 @@ class LetterList extends Component {
   }
 
   render() {
+    console.log('Penpal: ', this.props.penpal);
     return (
       <Container>
         <Row>
           <h1 className="col-12">Letters: </h1>
           {this.state.letters.map(letter => <Letter letter={letter} />)}
         </Row>
-        <LetterForm getLetter={this.getLetters} />
+        <LetterForm getLetter={this.getLetters} penpal={this.props.penpal} />
       </Container>
     );
   }

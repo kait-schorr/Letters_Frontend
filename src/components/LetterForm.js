@@ -26,8 +26,9 @@ class LetterForm extends Component {
       .post(
         'https://penpaldjango.herokuapp.com/api/letters/',
         {
-          date: this.state.letterDate,
+          date: '2018-07-11T21:25:53Z',
           outbound: this.state.letterOutbound,
+          name: this.state.penpal,
         },
         config
       )
