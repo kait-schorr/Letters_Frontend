@@ -35,7 +35,9 @@ class NavBar extends Component {
           </h1>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="#">Pen Pals</NavLink>
+              <NavLink tag={Link} to="/penpals">
+                Pen Pals
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="#">About</NavLink>

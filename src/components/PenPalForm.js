@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
-import axios from "axios";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import axios from 'axios';
 
 class PenPalForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      penPalName: "",
-      street_address: "",
-      city: "",
-      state: "",
-      zipcode: ""
+      penPalName: '',
+      street_address: '',
+      city: '',
+      state: '',
+      zipcode: '',
     };
   }
 
@@ -22,19 +22,19 @@ class PenPalForm extends Component {
   formSubmit = event => {
     event.preventDefault();
     let config = {
-      headers: { Authorization: `Token ${localStorage.getItem("authToken")}` }
+      headers: { Authorization: `Token ${localStorage.getItem('authToken')}` },
     };
     axios
       .post(
-        "https://penpaldjango.herokuapp.com/api/penpals/",
+        'https://penpaldjango.herokuapp.com/api/penpals/',
         {
           name: this.state.penPalName,
           address: {
             street_address: this.state.street_address,
             city: this.state.city,
             state: this.state.state,
-            zipcode: this.state.zipcode
-          }
+            zipcode: this.state.zipcode,
+          },
         },
         config
       )
@@ -42,7 +42,7 @@ class PenPalForm extends Component {
         this.props.getPenpals();
       })
       .catch(error => {
-        alert("There was an error creating a new account");
+        alert('There was an error creating a new account');
       });
   };
   componentDidMount() {}

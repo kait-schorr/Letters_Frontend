@@ -1,33 +1,34 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 import {
   Container,
   Row,
   Card,
   CardText,
   CardBody,
-  CardTitle
-} from "reactstrap";
-import { Link } from "react-router-dom";
-import PenPalForm from "./PenPalForm";
+  CardTitle,
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import PenPalForm from './PenPalForm';
+import LetterForm from './LetterForm';
 
 class PenPalList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      penpals: []
+      penpals: [],
     };
     this.getPenpals = this.getPenpals.bind(this);
   }
   getPenpals() {
     let config = {
-      headers: { Authorization: `Token ${localStorage.getItem("authToken")}` }
+      headers: { Authorization: `Token ${localStorage.getItem('authToken')}` },
     };
     console.log(config);
     axios
       .get(`https://penpaldjango.herokuapp.com/api/penpals/`, config)
       .then(response => {
-        console.log("Penpals: ", response);
+        console.log('Penpals: ', response);
         this.setState({ penpals: response.data });
         this.props.setPenPals(this.state.penpals);
       })
